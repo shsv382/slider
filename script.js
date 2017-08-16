@@ -3,25 +3,39 @@ $(document).ready(function(){
 	var i = 0;
 	var circles = $(".circle");
 	var collection = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg"];
-	
+	function sleep(ms) {
+		ms += new Date().getTime();
+		while (new Date() < ms){}
+	} 
+
 	var change = function() {
-		$("#image").fadeOut(300);
+		$(".image").fadeOut(500);
+		sleep(300);
 		i++;
 		i = i % collection.length;
 		image.src = "images/" + collection[i];		
-		$("#image").fadeIn(300);
+		$(".image").fadeIn(300);
 		pointer();
 	}
 
 	var right = document.getElementById("right");
-	right.onclick = change;
+	right.onclick = function() {
+		change();
+		clearTimeout(timerID);
+		timerID = setInterval(change, 5000);
+	}
 
 	var left = document.getElementById("left");
 	left.onclick = function() {
+		$(".image").fadeOut(500);
+		sleep(300);
 		i--;
 		if (i < 0) i = i + collection.length;
 		image.src = "images/" + collection[i];
+		$(".image").fadeIn(300);
 		pointer();
+		clearTimeout(timerID);
+		timerID = setInterval(change, 5000);
 	}
 
 	var navi = document.getElementsByClassName("navi")[0];
