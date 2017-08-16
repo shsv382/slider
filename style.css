@@ -12,16 +12,14 @@
 }
 
 div.image {
-	border: 1px dotted red;
 	position: relative;
+	height: 220px;
+	overflow: hidden;
 }
 
 img#main-img {
 	min-width: 100%;
 	min-height: 100%;
-
-	max-width-width: 100%;
-	max-height: 100%;
 }
 
 .next {
@@ -39,16 +37,32 @@ img#main-img {
 	background-color: rgba(230, 230, 230, 0.8);
 }
 
-.left {
+#left {
 	left: 20px;
 }
 
-.right {
+#right {
 	right: 20px;
 }
 
 .navi {
 	margin-top: 10px;
+	margin: auto;
+	width: 70px;
 	height: 20px;
+}
+
+.circle {
 	background-color: #ccc;
+	width: 10px;
+	height: 10px;
+	border-radius: 100%;
+	display: inline-block;
+	margin: auto;
+	cursor: pointer;
+}
+
+.circle:hover {
+
+	background-color: #888;
 }
